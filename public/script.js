@@ -43,7 +43,7 @@ function buscarNoticiasNaAPI() {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      noticiasOriginais = data.articles || [];
+      noticiasOriginais = data || []; // <- aqui: data já é o array de artigos
       renderNoticias(noticiasOriginais);
     })
     .catch((error) => {
