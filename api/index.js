@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 export default async function handler(req, res) {
   const { cidade = "Jundiaí" } = req.query;
   const apiKey = process.env.GNEWS_API_KEY;
