@@ -1,4 +1,3 @@
-const apiKey = "62a32b463e5e0860c656c252b1dec961";
 const cidade = "Jundiaí";
 
 document.getElementById("cidade-nome").textContent = cidade;
@@ -37,7 +36,7 @@ function renderNoticias(lista) {
 }
 
 function buscarNoticiasNaAPI() {
-  const url = `https://gnews.io/api/v4/search?q=saúde+${cidade}&lang=pt&country=br&max=10&token=${apiKey}`;
+  const url = `/api?cidade=${encodeURIComponent(cidade)}`;
 
   noticiasContainer.innerHTML = "<p>Carregando...</p>";
 
@@ -70,7 +69,7 @@ buscarBtn.addEventListener("click", () => {
   renderNoticias(filtradas);
 });
 
-// 🔄 Atualiza com nova chamada da API
+// Atualiza com nova chamada da API
 atualizarBtn.addEventListener("click", () => {
   buscarNoticiasNaAPI();
 });
